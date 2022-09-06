@@ -1,0 +1,162 @@
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/metropolis.min.css");
+
+*{
+    font-family: 'Metropolis', sans-serif;
+}
+
+.logo{
+    margin-top: 100px!important;
+}
+
+.logo img{
+    margin-right: 7.5px;
+}
+
+.blanja-font{
+    display: inline-block;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 28px;
+    color: #DB3022;
+    margin: 0px;
+}
+
+div.statement p{
+    margin: 40px 0px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.role .btn{
+    width: 123px;
+    height: 48px;
+    color: #9B9B9B;
+    text-align: center;
+    background: #fff;
+    border: 0.5px solid #9B9B9B;
+    filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+}
+
+button.deactive{
+    color: #9B9B9B !important;
+    background: #fff !important;
+    border: 0.5px solid #9B9B9B !important;
+    filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05)) !important;
+}
+
+.role .customer{
+    border-radius: 4px 0px 0px 4px;
+}
+
+button.active{
+    border: 1px solid #DB3022 !important;
+    background: #DB3022 !important;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05) !important;
+    color: #fff !important;
+}
+
+.role .customer, .role .active:hover{
+    color: #fff;
+    border: 1px solid #DB3022;
+    background: #DB3022;
+}
+
+
+.role .seller{
+    border-radius: 0px 4px 4px 0px;
+}
+
+.role .seller:hover{
+    color: #9B9B9B;
+}
+
+.login-form{
+    margin-top: 40px;
+}
+
+.login-form input::-webkit-input-placeholder, 
+.reset-form input::-webkit-input-placeholder,
+.signup-form input::-webkit-input-placeholder{
+    color: #9B9B9B;
+}
+
+.login-form input,
+.reset-form input,
+.signup-form input{
+    display: block;
+    width: 400px;
+    height: 48px;
+    border: 1px solid #9B9B9B;
+    filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+    border-radius: 4px;
+}
+
+/* .signup-form #phone, .signup-form #store_name{
+    display: none;
+} */
+
+.btn-login, .btn-signup, .reset-btn{
+    background: #DB3022;
+    border: 1px solid #DB3022;
+    color: #fff;
+    border-radius: 25px;
+    width: 401px;
+    height: 48px;
+}
+
+.btn-signup{
+    margin-top: 3rem;
+}
+
+.register-link,
+.register-link:hover {
+    color: #DB3022;
+}
+
+.login-form .text-right{
+    font-size: 14px;
+    color: #DB3022;
+}
+
+.login-form p,
+.signup-form p,
+.reset-form p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #222222;
+}
+
+.signup-form{
+    margin-top: 2.5rem;
+}
+
+.reset-form{
+    margin-top: 0px;
+}
+
+.reset-form .form-group{
+    margin-bottom: 50px;
+}
+
+.login-form .col,
+.signup-form .col,
+.reset-form .col{
+    margin-top: 2.5rem;
+}
+
+.statement-danger .text-danger{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.reset-password{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 40px 0px 22px 0px !important;
+}
