@@ -9,8 +9,6 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
 
-    const notify = () => toast("Email or Password is invalid");
-
     useEffect(() => {
         document.title = "Blanja Login"
     }, []);
@@ -45,10 +43,14 @@ const Login = () => {
             })
         })
         .catch(err => {
-            console.log('')
-            if(err.response.data.message === 'validation is failed'){
-                <ToastContainer />
-            } else{
+            console.log('err: ', err)
+            if(err.response.data.message === 'Email is invalid'){
+                Swal.fire({
+                    title: 'Error!',
+                    text: err.response.data.message,
+                    icon: 'error'
+                })
+            } else if(err.response.data.message === 'Password is invalid'){
                 Swal.fire({
                     title: 'Error!',
                     text: err.response.data.message,

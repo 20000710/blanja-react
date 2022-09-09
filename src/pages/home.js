@@ -9,6 +9,7 @@ import category4 from '../assets/img/category-4.png'
 import category5 from '../assets/img/category-5.png'
 import Navbar from '../components/navbar/navbar'
 import Carousel from '../components/carousel/carousel'
+import ProductSearch from '../components/product-search/product-search'
 
 const Home = () => {
   return (
@@ -39,7 +40,8 @@ const Home = () => {
             </div>   
           </div>
       </section>
-      <section className="new">
+      <ProductSearch/>
+      {/* <section className="new">
         <div className="row">
           <div className="col-lg-12 col-md-6 col-12 p-0 title">
               <h1>New</h1>
@@ -217,7 +219,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-      </section>
+      </section> */}
       <section className="popular">
         <div className="row">
             <div className="col-lg-12 col-md-6 col-12 p-0 title">
