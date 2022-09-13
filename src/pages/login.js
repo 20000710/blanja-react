@@ -3,7 +3,6 @@ import { Fragment } from 'react'
 import Logo from '../components/logo/logo'
 import '../assets/style/auth.css';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -26,10 +25,16 @@ const Login = () => {
         password: '',
     })
 
+    const [formSeller, setFormSeller] = useState({
+        email: '',
+        password: '',
+      })
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
 
+        if(active === 'customer'){
         axios
         .post(`${process.env.REACT_APP_API_BACKEND}user/login`, form)
         .then(res => {
@@ -39,7 +44,7 @@ const Login = () => {
                 icon: 'success'
             })
             .then(() => {
-                navigate('/home')
+                navigate('/profile')
             })
         })
         .catch(err => {
@@ -61,10 +66,43 @@ const Login = () => {
         .finally(() => {
             setLoading(false);
         });
+        } else {
+            axios
+        .post(`${process.env.REACT_APP_API_BACKEND}seller/login`, formSeller)
+        .then(res => {
+            Swal.fire({
+                title: 'Success!',
+                text: res.data.message,
+                icon: 'success'
+            })
+            .then(() => {
+                navigate('/profile')
+            })
+        })
+        .catch(err => {
+            console.log('err: ', err)
+            if(err.response.data.message === 'Email is invalid'){
+                Swal.fire({
+                    title: 'Error!',
+                    text: err.response.data.message,
+                    icon: 'error'
+                })
+            } else if(err.response.data.message === 'Password is invalid'){
+                Swal.fire({
+                    title: 'Error!',
+                    text: err.response.data.message,
+                    icon: 'error'
+                })
+            }
+        })
+        .finally(() => {
+            setLoading(false);
+        });    
+        }
     }
 
-    console.log(active)
-
+    console.log('active: ', active)
+    console.log('form seller: ', formSeller)
   return (
     <Fragment>
         <div className="container">
@@ -106,7 +144,11 @@ const Login = () => {
                             name="email"
                             onChange={e => {
                                 console.log('email: ', e.target.value)
-                                setForm({...form, email: e.target.value})
+                                if(active === 'customer'){  
+                                    setForm({...form, email: e.target.value})
+                                } else{
+                                    setFormSeller({...formSeller, email: e.target.value})
+                                }
                             }} />
                         </div>
                     </div>
@@ -119,8 +161,11 @@ const Login = () => {
                             placeholder="Password"
                             name="password"
                             onChange={e => {
-                                console.log('password: ', e.target.value)
-                                setForm({...form, password: e.target.value})
+                                if(active === 'customer'){
+                                    setForm({...form, password: e.target.value})
+                                } else {
+                                    setFormSeller({...formSeller, password: e.target.value})
+                                }
                             }}
                         />
                         </div>

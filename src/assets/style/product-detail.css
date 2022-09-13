@@ -1,0 +1,388 @@
+.container{
+    margin-left: 7.5% !important;
+    margin-right: 7.5% !important;
+    padding-left: 0px;
+    margin-right: 0px;
+}
+
+.breadcrumb{
+    background-color: #fff!important;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    float: left;
+    padding-right: 0.5rem;
+    color: #6c757d;
+    content: ">" !important;
+}
+
+.breadcrumb-item, .breadcrumb-item a,
+.breadcrumb-item a:hover{
+    font-family: 'Metropolis';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #9B9B9B;
+}
+
+.image-gallery{
+    height: 460px;
+    width: 1240px;
+    margin-top: 180px;
+    padding: 0 1rem;
+}
+
+.display-img{
+    max-width: 30.9% !important;
+}
+
+.desc-img{
+    margin-left: 28px;
+}
+
+main .image-gallery .main-img{
+    width: 367px;
+    height: 378px;
+    background: #C4C4C4;
+    border-radius: 8px;
+}
+
+main .image-gallery .sub-img{
+    width: 65px;
+    height: 65px;
+    border-radius: 8px;
+}
+
+main .image-gallery .sub-img:not(:first-child){
+    margin-left: 6px;
+}
+
+.image-gallery .image-collection{
+    width: 367px;
+    padding-top: 17px;
+}
+
+.product-desc h1,
+.product-price h1{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 28px;
+    color: #222222;
+}
+
+.product-price{
+    margin-top: 31.29px;
+}
+
+.product-price h1{
+    font-size: 33px;
+}
+
+.product-desc p,
+.product-price p{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: #9B9B9B;
+}
+
+.product-color{
+    margin-top: 40px;
+}
+
+.product-color button{
+    width: 36px;
+    height:36px;
+    border-radius: 50%;
+    border: 0px;
+}
+
+.product-color button{
+    margin-left: 12px;
+}
+
+.product-color button:nth-child(2){
+    margin-left: 0px;
+}
+
+.product-color button[value="black"]{
+    background-color: #222222;
+}
+
+.product-color button[value="red"]{
+    background: #D84242;
+}
+
+.product-color button[value="blue"]{
+    background: #4290D8;
+}
+
+.product-color button[value="green"]{
+    background: #42D86C;
+}
+
+.product-amount{
+    height: 66px;
+    width: 100%;
+} 
+
+.product-amount button{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    padding: 5px 5px;
+}
+
+.product-amount .btn-minus{
+    background: #9B9B9B;
+    margin: 14px 0px 0px 0px;
+}
+
+.product-amount .btn-plus{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(142, 142, 142, 0.25);
+    margin: 14px 70px 0px 0px;
+}
+
+.product-amount .btn-minus img,
+.product-amount .btn-plus img{
+    width: 14px;
+}
+
+.product-amount div.number{
+    margin: 24px 17px;
+    margin-bottom: 0;
+}
+
+.product-amount p{
+    height: 16px;
+    margin: 0;
+}
+
+.product-amount p:first-child {
+    margin: 0px 159px 0px 15px;
+}
+
+.product-button{
+    margin: 47px 0px 0px 41px;
+}
+
+.product-button .chat,
+.product-button .add-bag{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(142, 142, 142, 0.25);
+    width: 160px;
+    height: 48px;
+    border: 1.5px solid #222222;
+    border-radius: 24px;
+}
+
+.product-button .buy-now{
+    width: 343px;
+    height: 48px;
+    border: 1px solid #DB3022;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05);
+    color: #fff;
+    background: #DB3022;
+    border-radius: 25px;
+}
+
+.product-button button:not(:last-child){
+    margin-right: 10px;
+}
+
+.image-gallery .second-row{
+    padding-left: 15px;
+}
+
+.product-information h1{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 28px;
+    color: #222222;
+    margin: 38px 0px 40px 0px
+}
+
+.product-information .condition p{
+    color: #DB3022;
+}
+
+.product-information h2{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    color: #222222;
+}
+
+.product-description p{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #9B9B9B;
+}
+
+.product-review{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-review h1{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 28px;
+    color: #222222;
+}
+
+.review-number{
+    display: flex;
+    flex-direction: row;
+    width: 124px;
+    height: 55px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.review-number h1{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 60px;
+}
+
+.review-number p {
+    font-family: 'Metropolis';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 32px 0px 16px 5px;
+}
+
+.product-review img{
+    width: 124px;
+    height: 24px;
+}
+
+.user-rating{
+    display: flex;
+    flex-direction: row;
+    height: 115px;
+    margin-left: 60.64px;
+}
+
+.user-rating .stars{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.user-rating .stars img{
+    margin-bottom: 9px;
+}
+
+.user-rating .number p,
+.user-rating .total-number p{
+    margin-top: 0.5rem;
+    margin-bottom: 0.625rem;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    color: #9B9B9B;
+}
+
+.user-rating .progress{
+    margin: 10px 25px 0 25px;
+    width: 120px;
+    height: 5px;
+}
+
+.user-rating img {
+    width: 16.71px;
+    height: 15.43px;
+}
+
+hr.seperator{
+    margin-top: 51.29px;
+    margin-bottom: 50px;
+}
+
+.recomendation{
+    padding: 20px;
+}
+
+.recomendation .card{
+    margin-top: 25px;
+    width: 208px;
+    height: 248px;
+    border: none;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 14px rgba(173, 173, 173, 0.25);
+    border-radius: 8px;
+}
+
+.recomendation .card-body{
+    padding: 12px;
+}
+
+.recomendation .card-text{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.recomendation .card-text:nth-child(1){
+    margin-bottom: 6px;
+    color: #000000;
+    line-height: 24px;
+}
+
+.recomendation .card-text:nth-child(2){
+    color: #DB3022;
+    line-height: 16px;
+    margin-bottom: 6px;
+}
+
+.recomendation .card img{
+    border-radius: 8px 8px 0px 0px;
+}
+
+.recomendation .card .stars{
+    margin-top: 11px;
+    width: 95px;
+    height: 14px;
+    left: 162px;
+    top: 1382px;
+}
+
+.recomendation .row{
+    flex-wrap: nowrap;
+}
+
+.recomendation .row .col-lg-2{
+    margin-right: 43px;
+}
+
+.recomendation  h1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 22px;
+    color: #222222;
+}
+
+.recomendation p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 16px;
+    color: #9B9B9B;
+}

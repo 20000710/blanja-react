@@ -7,3 +7,14 @@
     width: 208px;
     height: 136px;
 }
+
+form select{
+    width: 150px;
+    height: 30px;
+    color: grey;
+    margin-right: 2rem;
+}
+
+form input{
+    color: grey;
+}

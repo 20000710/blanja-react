@@ -5,41 +5,44 @@ import '../../assets/style/swiper.css'
 import img1 from '../../assets/img/card-promotion.png'
 import img2 from '../../assets/img/card-promotion2.png'
 import img3 from '../../assets/img/card-promotion.png'
-import img4 from '../../assets/img/card-promotion2.png'
 
 export class Carousel extends Component {
   render() {
     return (
-        <Fragment>
-            <Swiper
-                    effect={"coverflow"}
-                    grabCursor={true}
-                    centeredSlides={true}
-                    slidesPerView={"auto"}
-                    coverflowEffect={{
-                    rotate: 50,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 1,
-                    slideShadows: false,
-                    }}
-                    pagination={true}
-                    className="mySwiper"
-                >
-            <SwiperSlide>
-                <img src={img1} alt="img 1"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src={img2} alt="img 2"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src={img3} alt="img 3"/>
-            </SwiperSlide>
-            <SwiperSlide>
-            <img src={img4} alt="img 4"/>
-            </SwiperSlide>
-            </Swiper>
-        </Fragment>
+        <Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={img1}
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={img2}
+          alt="Second slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Second slide label</h3>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={img3}
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Third slide label</h3>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
     )
   }
 }

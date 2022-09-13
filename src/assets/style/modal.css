@@ -1,0 +1,19 @@
+.modal .modal-content{
+    height: 560px;
+}
+
+.modal-content .footer  {
+ display: flex;
+ justify-content: flex-end;
+}
+
+.modal-content .footer-delete{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;  
+}
+
+.modal-content .footer button,
+.modal-content .footer-delete button {
+    margin-right: 1rem;
+}

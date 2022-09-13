@@ -2,22 +2,21 @@ body {
     overflow-x: hidden;
 }
 
-.navbar-menu{
-    position: fixed;
+.custom-container{
+    margin-left: 150px;
+    margin-right: 150px;
     width: 100%;
-    height: 100px;
-    left: 0px;
-    top: 0px;
-    z-index: 2;
-    background: #FFFFFF;
-    box-shadow: 0px 6px 40px rgba(173, 173, 173, 0.25);
+}
+
+nav.navbar{
+    background: #fff;
 }
 
 header{
     margin-top: 12.5%;
 }
 
-.logo-home img{
+.logo img{
     width: 31.54px;
     height: 44px;
     margin-right: 0.469rem;
@@ -30,7 +29,7 @@ header{
     font-style: normal;
     font-size: 24px;
     color: #DB3022;
-    margin: 0px;
+    margin: 5px 0px 0px 5px;
 }
 
 .search-input input{
@@ -51,7 +50,7 @@ header{
     color: #9B9B9B;
 }
 
-.filter-btn{
+.filter{
     margin: 30px 0px;
     width: 40px;
     height: 40px;
@@ -61,13 +60,16 @@ header{
     cursor: pointer;
 }
 
-.filter-btn img{
+.filter img{
     width: 16.67px;
     height: 15px;
 }
 
+.filter .nav-link{
+    padding: 0.4rem 0.6rem;
+}
+
 .cart-btn{
-    margin: 30px 0px 0px 120px;
     border: 0px;
     background: #FFFFFF;
 }
@@ -148,11 +150,12 @@ header{
     margin-top: 50px;
 }
 
-.category .col-2{
+.category .col{
     margin-right: 28px;
+    flex-grow: 0;
 }
 
-.category .col-2 img{
+.category .col img{
     width: 206px;
     height: 220px;
 }
@@ -179,7 +182,7 @@ header{
 
 .new .row,
 .popular .row{
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .new .row .title,
@@ -187,8 +190,9 @@ header{
     height: 55px;
 }
 
-.new .row .col-lg-2,
-.popular .row .col-lg-2{
+.new .row .col,
+.popular .row .col{
+    flex-grow: 0;
     margin-right: 43px;
 }
 
@@ -399,6 +403,8 @@ header{
     border-radius: 0px 0px 8px 8px;
 }
 
+
+
 .nav-pills .nav-link.active,
 .nav-pills .show .nav-link {
   color: #fff;
@@ -452,3 +458,22 @@ padding: 6px 30px;
 height: 50px;
 margin: 13px;
 }
+
+ul.navbar-nav{
+    align-items: center;
+}
+
+@media only screen and (max-width: 1000px){
+    .navbar-collapse{
+        flex-direction: column;
+    }
+}
+  
+@media only screen and (max-width: 600px) {
+    .category {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+}
+
