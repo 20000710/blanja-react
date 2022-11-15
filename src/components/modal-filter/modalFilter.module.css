@@ -1,0 +1,24 @@
+.filter-btn{
+    margin: 30px 0px;
+    width: 40px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #8E8E93;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.filter-btn img{
+    width: 16.67px;
+    height: 15px;
+}
+
+.btn-discard{
+    color: #000!important;
+    border: "1px solid #000!important";
+}
+
+.btn-apply{
+    color: #fff;
+    background-color: #DB3022!important;
+}

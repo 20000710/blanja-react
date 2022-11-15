@@ -1,0 +1,120 @@
+.left-card{
+    width: 63%;
+}
+
+.btn-add-address{
+    width: 210px;
+    height: 36px;
+    background-color: #fff;
+    color: #9B9B9B;
+    font-size: 14px;
+    border-radius: 18px;
+    border: 1px solid grey;
+}
+
+.btn-choose-payment{
+    width: 100%;
+    height: 36px;
+    margin-top: 1rem;
+    background-color: #DB3022;
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.item-name{
+    font-size: 16px;
+    color: #222222;
+}
+
+.item-section{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.total-amount{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.cost{
+    color: #9B9B9B;
+    font-size: 18px;
+}
+
+.add-address-title{
+    padding-top: 4rem;
+    width: 90%;
+    font-weight: 600;
+    font-size: 28px;
+    color: #222222;
+    text-align: center;
+}
+
+.main-modal .modal-content{
+    width: 810px
+}
+
+.btn-add-new{
+    width: 100%;
+    height: 86px;
+    background-color: #fff;
+    color: #9B9B9B;
+    border-radius: 8px;
+    font-weight: 600;
+    border: 2px dashed #9B9B9B;
+}
+
+.select-primary{
+    margin-top: 2.5rem;
+    display: flex;
+    height: 24px;
+    align-items: center;
+}
+
+.btn-footer{
+    margin-top: 3rem;
+    float: right;
+}
+
+.btn-footer button{
+    width: 160px;
+    height: 36px;
+    border-radius: 20px;
+}
+
+.save-btn,
+.btn-buy{
+    background-color: #DB3022!important;
+    color: #fff!important;
+    border: none!important;
+}
+
+.cancel-btn{
+    background-color: #fff;
+    color: #9B9B9B;
+    border: 1px solid #9B9B9B;
+    margin-right: 1.5rem;
+}
+
+.payment-type-title{
+    font-weight: 600;
+    font-size: 16px;
+    width: 86.61px;
+}
+
+.payment-type{
+    width: 55%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.summary-title{
+    font-weight: 600;
+    font-size: 16px;
+    color: #222222;
+}

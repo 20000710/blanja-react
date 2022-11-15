@@ -2,15 +2,17 @@ body {
     overflow-x: hidden;
 }
 
-.navbar-menu{
-    position: fixed;
-    width: 100%;
+.navbar-home,
+.navbar-login{
     height: 100px;
-    left: 0px;
-    top: 0px;
-    z-index: 2;
     background: #FFFFFF;
     box-shadow: 0px 6px 40px rgba(173, 173, 173, 0.25);
+}
+
+.navbar-login .navbar-menu{
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
 }
 
 header{
@@ -21,7 +23,6 @@ header{
     width: 31.54px;
     height: 44px;
     margin-right: 0.469rem;
-    margin-left: 9.764rem;
 }
 
 .blanja-font{
@@ -34,17 +35,15 @@ header{
 }
 
 .search-input input{
-    width: 31.688rem !important;
+    width: 31rem !important;
     height: 2.5rem;
     background: #FFFFFF;
     border: 1px solid #8E8E93;
-    border-radius: 23px !important;
-
-    background-image: url('../img/search.png');
+    border-radius: 23px 0px 0px 23px !important;
     background-position: 96% 45%;
     background-repeat: no-repeat;
     background-size: 18px 18px;
-    margin: 30px 11px 30px 60px !important;
+    margin: 30px 0px 30px 60px !important;
 }
 
 .search-input input::-webkit-input-placeholder{
@@ -77,7 +76,7 @@ header{
     height: 24px;
 }
 
-.navbar-menu .auth{
+.navbar-home .auth{
     margin: 30px 41px;
 }
 
@@ -91,13 +90,13 @@ header{
     text-decoration: none;
 }
 
-.navbar-menu button[type="submit"]{
+.navbar-home button[type="submit"]{
     width: 100px;
     height: 36px;
     border-radius: 25px;
 }
 
-.navbar-menu .login-btn{
+.navbar-home .login-btn{
     border: 1px solid #DB3022;
     background: #DB3022;
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05);
@@ -105,7 +104,7 @@ header{
     margin-right: 20px;
 }
 
-.navbar-menu .signup-btn{
+.navbar-home .signup-btn{
     color: #9B9B9B;
     text-align: center;
     background: #fff;
@@ -298,28 +297,28 @@ header{
     border: 2px solid #22a7db;
 }
 
-.modal .choose-color button[value="black"]{
+.modal .choose-color button.black{
     background-color: #222222;
 }
 
-.modal .choose-color button[value="white"]{
+.modal .choose-color button.white{
     background-color: #fff;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.modal .choose-color button[value="red"]{
+.modal .choose-color button.red{
     background-color: #B82222;
 }
 
-.modal .choose-color button[value="cream"]{
+.modal .choose-color button.cream{
     background-color: #BEA9A9;
 }
 
-.modal .choose-color button[value="yellow-cream"]{
+.modal .choose-color button.yellow-cream{
     background-color: #E2BB8D;
 }
 
-.modal .choose-color button[value="blue"]{
+.modal .choose-color button.blue{
     background-color: #151867;
 }
 

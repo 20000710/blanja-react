@@ -4,29 +4,29 @@ import { useDispatch, useSelector } from 'react-redux';
 import '../../assets/style/table.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash, faEye, faSquarePlus } from '@fortawesome/free-solid-svg-icons'
-import getProduct from '../../redux/action/getAllproductAction';
 import { Link } from 'react-router-dom';
 import ModalCreate from '../modal-create/modal-create';
 import ModalUpdate from '../modal-update/modal-update';
 import ModalDelete from '../modal-delete/modal-delete';
+import getAllProduct from '../../redux/action/getAllproductAction';
+import { useState } from 'react';
 
 
 const TableProduct = () => {
   const dispatch = useDispatch()
+  const [search, setSearch] = useState("")
+  const [sort, setSort] = useState("")
   const { product } = useSelector((state) => state.product)
   useEffect(() => {
-    dispatch(getProduct)
+    dispatch(getAllProduct(search, sort))
   }, [])
   console.log('product: ', product)
 
-  const handleImageName = (image) => {
-    const startWith = image.indexOf("photo")
-    const endWith = image.indexOf(".png")
-    return image.substr(startWith, endWith)
-  }
-
   return (
     <div className="table-product">
+      <ModalCreate>
+        <FontAwesomeIcon icon={faSquarePlus} />
+      </ModalCreate>
       <Table>
         <thead>
           <tr className="table-title text-light text-center">
@@ -38,11 +38,7 @@ const TableProduct = () => {
             <th>Price</th>
             <th>Photo</th>
             <th>Description</th>
-            <th>Action
-              <ModalCreate>
-                <FontAwesomeIcon icon={faSquarePlus} />
-              </ModalCreate>
-            </th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -54,13 +50,20 @@ const TableProduct = () => {
               <td>{item.size}</td>
               <td>{item.color}</td>
               <td>{item.price}</td>
-              <td><a target="_blank" rel="noopener noreferrer" href={item.photo}>{handleImageName(item.photo)}</a></td>
+              <td>
+                <img 
+                crossOrigin="anonymous" 
+                src={
+                  "http://localhost:3030/" + item.photo
+                } alt="product-images" /></td>
               <td>{item.description}</td>
               <td className="text-center">
-                <Link to={`/product/${item.id_product}`}>
+                <Link 
+                  to={`/product/${item.id_product}`} 
+                  state={{id_product: item.id_product}}>
                   <button className="btn btn-primary"><FontAwesomeIcon icon={faEye} /></button>
                 </Link>
-                <ModalUpdate 
+                <ModalUpdate
                   id={item.id_product}
                   name={item.name}
                   brand={item.brand}
@@ -68,9 +71,10 @@ const TableProduct = () => {
                   color={item.color}
                   price={item.price}
                   photo={item.photo}
+                  quantity={item.quantity}
                   description={item.description}
                 >
-                  <FontAwesomeIcon icon={faPen}/>
+                  <FontAwesomeIcon icon={faPen} />
                 </ModalUpdate>
                 <ModalDelete id={item.id_product} name={item.name}><FontAwesomeIcon icon={faTrash} /></ModalDelete>
               </td>

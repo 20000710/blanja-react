@@ -5,9 +5,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { toastr } from '../utils/toastr';
+import { useDispatch } from 'react-redux';
+import { registerCustomer, registerSeller } from '../redux/action/authAction';
 
 const SignUp = () => {
-
+  const dispatch = useDispatch()
   useEffect(() => {
     document.title = "Blanja Sign Up"
   }, []);
@@ -19,8 +21,7 @@ const SignUp = () => {
   const [form, setForm] = useState({
     email: '',
     password: '',
-    fullname: '',
-    role: ''
+    name: ''
   })
 
   const [formSeller, setFormSeller] = useState({
@@ -28,83 +29,38 @@ const SignUp = () => {
     email: '',
     phone: '',
     store_name: '',
-    password: '',
-    role: ''
+    password: ''
   })
+
+
+  const handleChange = (e) => {
+    if(active === 'customer'){
+        setForm({ ...form, [e.target.name]: e.target.value })
+    } else{
+        setFormSeller({ ...formSeller, [e.target.name]: e.target.value })
+    }
+}
 
   useEffect(() => {
     setActive('customer')
-    setForm({ ...form, role: 'customer' })
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-
-    if (active === 'customer') {
-      axios
-        .post(`${process.env.REACT_APP_API_BACKEND}user/register`, form)
-        .then(res => {
-          Swal.fire({
-            title: 'Success!',
-            text: res.data.message,
-            icon: 'success'
-          })
-            .then(() => navigate('/login'))
-        })
-        .catch(err => {
-          if (err.response.data.message === 'validation is failed') {
-            const error = err.response.data.error;
-            error.map(e => toastr(e, 'error'));
-          } else {
-            Swal.fire({
-              title: 'Error!',
-              text: err.response.data.message,
-              icon: 'error'
-            })
-          }
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    } else {
-      axios
-        .post(`${process.env.REACT_APP_API_BACKEND}seller/register`, formSeller)
-        .then(res => {
-          Swal.fire({
-            title: 'Success!',
-            text: res.data.message,
-            icon: 'success'
-          })
-            .then(() => {
-              navigate('/login')
-            })
-        })
-        .catch(err => {
-          console.log('err: ', err)
-          if (err.response.data.message === 'validation is failed') {
-            const error = err.response.data.error;
-            error.map(e => toastr(e, 'error'));
-          } else {
-            Swal.fire({
-              title: 'Error!',
-              text: err.response.data.message,
-              icon: 'error'
-            })
-          }
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+    if(active === "customer"){
+      dispatch(registerCustomer(form, navigate, setLoading))
+    }else{
+      dispatch(registerSeller(formSeller, navigate, setLoading))
     }
   }
   console.log('active: ', active)
   // console.log('role: ', role)
   // console.log('form: ', form)
+  console.log('formCustomer: ', form);
   console.log('formSeller: ', formSeller)
   return (
     <Fragment>
-      <div className="container">
         <Logo />
         <div className="row">
           <div className="col d-flex justify-content-center statement">
@@ -157,47 +113,37 @@ const SignUp = () => {
           )
           }
         </nav>
-        <div className="signup-form d-flex justify-content-center">
+        <div className="signup-form">
           {active === 'customer' ? (
             <form onSubmit={handleSubmit}>
               <div className="form-group" style={{ marginBottom: '1rem' }}>
                 <div className="row">
                   <input
                     type="text"
+                    name='name'
                     className="form-control"
                     placeholder="Name"
-                    onChange={e => {
-                      setForm({ ...form, fullname: e.target.value })
-                    }} />
+                    onChange={handleChange} />
                 </div>
               </div>
               <div className="form-group" style={{ marginBottom: '1rem' }}>
                 <div className="row" style={{ marginBottom: '1rem' }}>
                   <input
                     type="email"
+                    name="email"
                     className="form-control"
                     aria-describedby="emailHelp"
                     placeholder="Email"
-                    onChange={e => {
-                      setForm({ ...formSeller, email: e.target.value })
-                    }} />
+                    onChange={handleChange} />
                 </div>
               </div>
               <div className="form-group" hidden id="phone" style={{ marginBottom: '1rem' }}>
                 <div className="row">
                   <input
                     type="tel"
+                    name="phone"
                     className="form-control"
                     placeholder="Phone number"
-                  />
-                </div>
-              </div>
-              <div className="form-group" hidden id="store_name" style={{ marginBottom: '1rem' }}>
-                <div className="row">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Store name"
                   />
                 </div>
               </div>
@@ -205,11 +151,10 @@ const SignUp = () => {
                 <div className="row">
                   <input
                     type="password"
+                    name="password"
                     className="form-control"
                     placeholder="Password"
-                    onChange={e => {
-                      setForm({ ...form, password: e.target.value })
-                    }} />
+                    onChange={handleChange} />
                 </div>
               </div>
               <div className="row">
@@ -238,9 +183,8 @@ const SignUp = () => {
                     type="text"
                     className="form-control"
                     placeholder="Name"
-                    onChange={e => {
-                      setFormSeller({ ...formSeller, name: e.target.value })
-                    }}
+                    name="name"
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -251,9 +195,8 @@ const SignUp = () => {
                     className="form-control"
                     aria-describedby="emailHelp"
                     placeholder="Email"
-                    onChange={e => {
-                      setFormSeller({ ...formSeller, email: e.target.value })
-                    }}
+                    name="email"
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -263,9 +206,8 @@ const SignUp = () => {
                     type="tel"
                     className="form-control"
                     placeholder="Phone number"
-                    onChange={e => {
-                      setFormSeller({ ...formSeller, phone: e.target.value })
-                    }}
+                    name="phone"
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -275,9 +217,8 @@ const SignUp = () => {
                     type="text"
                     className="form-control"
                     placeholder="Store name"
-                    onChange={e => {
-                      setFormSeller({ ...formSeller, store_name: e.target.value })
-                    }}
+                    name="store_name"
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -285,11 +226,10 @@ const SignUp = () => {
                 <div className="row">
                   <input
                     type="password"
+                    name="password"
                     className="form-control"
                     placeholder="Password"
-                    onChange={e => {
-                      setFormSeller({ ...formSeller, password: e.target.value })
-                    }}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -318,7 +258,7 @@ const SignUp = () => {
             </form>
           )}
         </div>
-      </div>
+      
     </Fragment>
   )
 }

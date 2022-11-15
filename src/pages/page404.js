@@ -1,7 +1,7 @@
 import React from 'react'
 import '../assets/style/page404.css'
 
-const page404 = () => {
+const Page404 = () => {
     return (
         <div>
             <div className="notfound">
@@ -15,4 +15,4 @@ const page404 = () => {
     )
 }
 
-export default page404
+export default Page404

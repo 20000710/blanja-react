@@ -4,26 +4,33 @@ import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
 import "../../assets/style/modal.css";
 import createProduct from "../../redux/action/createProductAction";
+import Cookies from 'js-cookie';
+import { useEffect } from "react";
 
 const ModalCreate = ({children}) => {
+  const token = Cookies.get("token")
   const dispatch = useDispatch()
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [saveImage, setSaveImage]  = useState(null);
+
   function handleUpload(e) {
     console.log(e.target.files[0]);
     const uploader = e.target.files[0];
+    console.log('uploader: ', uploader)
     setSaveImage(uploader);
   }
   const [data, setData] = useState({
     name:"",
     brand:"",
+    category_id: "a67694eb-b306-4c4e-bfd6-69f5a04af328",
     size: "",
     color: "",
     price:"",
     photo:"",
-    description:""
+    description:"",
+    quantity: "",
   });
 
   const handleChange = (e) => {
@@ -36,9 +43,15 @@ const ModalCreate = ({children}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createProduct(data,saveImage,setShow))
+    window.location.reload();
+    dispatch(createProduct(data,saveImage,token))
+    handleClose()
   };
 
+  console.log('data: ', data);
+  // useEffect(() => {
+  //   get
+  // },[])
   return (
     <Fragment>
       <button
@@ -100,7 +113,7 @@ const ModalCreate = ({children}) => {
               type="file"
               placeholder="photo"
               name="photo"
-              onChange={handleUpload}
+              onChange={(e) => handleUpload(e)}
             />
             <input
               className="form-control mt-3"
@@ -108,6 +121,14 @@ const ModalCreate = ({children}) => {
               placeholder="description"
               name="description"
               value={data.description}
+              onChange={handleChange}
+            />
+            <input
+              className="form-control mt-3"
+              type="text"
+              placeholder="quantity"
+              name="quantity"
+              value={data.quantity}
               onChange={handleChange}
             />
         </Modal.Body>

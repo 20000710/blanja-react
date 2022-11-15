@@ -68,7 +68,7 @@ const ProductSearch = () => {
   return (
     <Fragment>
       <section>
-        <div className="container mt-2 ">
+        <div className="mt-5">
           <div className="row-new">
             <div className="row">
               <div className="col-md-12 justify-content-center">
@@ -110,7 +110,7 @@ const ProductSearch = () => {
                           <p className="fs-6 text-muted">
                             <small>{item.brand}</small>
                           </p>
-                          <img className="mb-3" crossOrigin="anonymous" src={require("../../assets/img/rating-5-stars.png")} alt="" />
+                          <img className="mb-3 stars-img" crossOrigin="anonymous" src={require("../../assets/img/rating-5-stars.png")} alt="" />
                         </div>
                       </Card>
                     </Link>

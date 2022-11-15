@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import React, { Fragment, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -13,29 +14,37 @@ const ModalUpdate = ({
   color,
   price,
   photo,
+  quantity,
   description,
 }) => {
   const dispatch = useDispatch()
+  const token = Cookies.get("token")
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [saveImage, setSaveImage]  = useState(photo);
-  function handleUpload(e) {
+
+  const handleUpload = (e) => {
     console.log(e.target.files[0]);
     const uploader = e.target.files[0];
     setSaveImage(uploader);
   }
+
   const [data, setData] = useState({
     name,
     brand,
+    category_id: "a67694eb-b306-4c4e-bfd6-69f5a04af328",
     size,
     color,
     price,
     photo,
+    quantity,
     description,
   });
 
-  const handleChange = (e) => {
+  
+
+  const handleChange = (e) => { 
     setData({
       ...data,
       [e.target.name]: e.target.value,
@@ -45,7 +54,9 @@ const ModalUpdate = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateProduct(data,id,saveImage,setShow))
+    // window.location.reload();
+    dispatch(updateProduct(data,id,saveImage,token))
+    handleClose()
   };
 
   return (
@@ -123,6 +134,15 @@ const ModalUpdate = ({
               placeholder="description"
               name="description"
               value={data.description}
+              onChange={handleChange}
+            />
+            <input
+              className="form-control mt-3"
+              type="text"
+              id={id}
+              placeholder="quantity"
+              name="quantity"
+              value={data.quantity}
               onChange={handleChange}
             />
         </Modal.Body>

@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import React, { Fragment, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -5,12 +6,15 @@ import { useDispatch } from "react-redux";
 import deleteProduct from "../../redux/action/deleteProductAction";
 
 const ModalDelete = ({ children, id, name }) => {
+    const token = Cookies.get("token")
     const dispatch = useDispatch()
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleDelete = () => {
-        dispatch(deleteProduct(id, setShow))
+        // window.location.reload();
+        dispatch(deleteProduct(id, token))
+        handleClose();
     };
     return (
         <Fragment>

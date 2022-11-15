@@ -125,8 +125,9 @@ main .image-gallery .sub-img:not(:first-child){
 }
 
 .product-amount{
-    height: 66px;
-    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    width: 75%;
 } 
 
 .product-amount button{
@@ -136,7 +137,9 @@ main .image-gallery .sub-img:not(:first-child){
     padding: 5px 5px;
 }
 
-.product-amount .btn-minus{
+.product-amount .btn-minus,
+.product-amount .btn-minus:hover,
+.product-amount .btn-minus:focus{
     background: #9B9B9B;
     margin: 14px 0px 0px 0px;
 }
@@ -162,11 +165,8 @@ main .image-gallery .sub-img:not(:first-child){
     margin: 0;
 }
 
-.product-amount p:first-child {
-    margin: 0px 159px 0px 15px;
-}
-
 .product-button{
+    width: 67%!important;
     margin: 47px 0px 0px 41px;
 }
 
@@ -195,7 +195,8 @@ main .image-gallery .sub-img:not(:first-child){
 }
 
 .image-gallery .second-row{
-    padding-left: 15px;
+    margin-top: 2rem;
+    justify-content: flex-end;
 }
 
 .product-information h1{
