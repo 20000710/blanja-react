@@ -38,6 +38,11 @@ const ModalFilter = ({children, filter }) => {
         }
         handleClose()
     }
+
+    const handleDiscard = () => {
+        dispatch(getAllProduct("", ""))
+        handleClose()
+    }
     console.log('color: ', color);
     console.log('brand: ', brand);
     console.log('sort: ', sortby);
@@ -115,7 +120,7 @@ const ModalFilter = ({children, filter }) => {
                             padding: "1rem 2rem",
                             marginTop: "2rem"
                         }}>
-                            <button type="button" className={styles["btn-discard"]}>discard</button>
+                            <button onClick={handleDiscard} type="button" className={styles["btn-discard"]}>discard</button>
                             <button type="submit" className={styles["btn-apply"]}>apply</button>
                     </Modal.Footer>
                 </form>

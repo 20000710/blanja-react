@@ -17,6 +17,12 @@ const TableProduct = () => {
   const [search, setSearch] = useState("")
   const [sort, setSort] = useState("")
   const { product } = useSelector((state) => state.product)
+  const formatCustom = (val) => {
+    const substring = val?.substr(val.length - 3, val.length)
+    
+    const match = val?.replace(substring, "")
+    return `Rp ${match}K`
+}
   useEffect(() => {
     dispatch(getAllProduct(search, sort))
   }, [])
@@ -49,7 +55,7 @@ const TableProduct = () => {
               <td>{item.brand}</td>
               <td>{item.size}</td>
               <td>{item.color}</td>
-              <td>{item.price}</td>
+              <td>{formatCustom(item.price)}</td>
               <td>
                 <img 
                 crossOrigin="anonymous" 

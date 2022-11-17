@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom'
 import transactionSuccessImg from '../../assets/img/transaction-success.png'
 
 const TransactionSuccess = () => {
-    const handleRefresh = () => {
-        window.location.reload();
-    }
+   
 
     return (
         <div className="card"
@@ -29,7 +27,7 @@ const TransactionSuccess = () => {
                 }}>
                 <img width={250} height={250} src={transactionSuccessImg} alt="transaction img success" />
                 <h5 class="card-title" style={{fontSize: "30px"}}>Transaction Successfully!</h5>
-                <Link onClick={handleRefresh} to="/" style={{fontSize: "18px", color: "#DB3022"}}>Temukan barang lainnya</Link>
+                <Link to="/" style={{fontSize: "18px", color: "#DB3022"}}>Temukan barang lainnya</Link>
             </div>
         </div>
     )

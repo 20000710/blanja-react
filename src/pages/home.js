@@ -1,15 +1,13 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import '../assets/style/home.css'
-import formalSuit from '../assets/img/formal-suit.png'
 import NavbarHome from '../components/navbar/navbarHome'
-import axios from 'axios'
 import Cookies from 'js-cookie'
 import { useDispatch, useSelector } from 'react-redux'
 import Card from '../components/card/card'
-import Item from 'antd/lib/list/Item'
 import Category from '../components/category/category'
 import CarouselHome from '../components/carousel/carousel'
 import getAllProduct from '../redux/action/getAllproductAction'
+import Popular from '../components/popular/popular'
 // import Carousel from '../components/carousel/carousel'
 // import ProductSearch from '../components/product-search/product-search'
 // import navbarLogin from '../components/navbar/navbar-login'
@@ -55,6 +53,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            <Popular />
         </Fragment>
     )
 }

@@ -31,7 +31,7 @@ const Checkout = () => {
     let totalAmount = order + + deliveryCost
     const formatCustom = (val) => {
         const substring = val?.substr(val.length - 3, val.length)
-        console.log('substring: ', substring);
+        
         const match = val?.replace(substring, "")
         return `Rp ${match}K`
     }
@@ -52,7 +52,17 @@ const Checkout = () => {
                         <div className="d-flex justify-content-between second-row">
                             <div className={styles["left-card"]}>
                                 <p>Shipping Address</p>
-                                {customerDetail.address !== undefined || customerDetail.address !== "" ?
+                                <ModalAddAddress 
+                                    title="Choose another address" 
+                                    disabled={
+                                        customerDetail.address2 !== null || 
+                                        customerDetail.address2 !== undefined ? 
+                                        true : false
+                                    }
+                                    customerDetail={customerDetail}
+                                />
+                                {customerDetail.address === null || customerDetail.address === "" || customerDetail.address === undefined ?
+                                "" :
                                 <div className="card"
                                     style={{
                                         boxShadow: "0px 0px 8px rgba(115, 115, 115, 0.25)",
@@ -64,15 +74,14 @@ const Checkout = () => {
                                         <p className="card-text">
                                             {customerDetail?.address}
                                         </p>
-                                        {customerDetail.address2 === undefined || customerDetail?.address2 === "" ?
+                                        {customerDetail.address2 === null || customerDetail?.address2 === "" ?
                                             <ModalAddAddress title="Choose another address" /> : ""
                                         }
                                     </div> 
-                                
-                                    
-                                </div> : ""
+                                </div> 
                                 }   
-                                {customerDetail.address2 !== undefined || customerDetail.address2 !== "" ?
+                                {customerDetail.address2 === null || customerDetail.address2 === "" || customerDetail.address2 === undefined ?
+                                <></> :
                                 <div className="card mt-3"
                                     style={{
                                         boxShadow: "0px 0px 8px rgba(115, 115, 115, 0.25)",
@@ -85,7 +94,7 @@ const Checkout = () => {
                                             {customerDetail?.address2}
                                         </p>
                                     </div>  
-                                </div> : ""
+                                </div>
                                 }   
                             </div>
                             <div className="card col-lg-4 col-4 p-4 mt-4"

@@ -8,7 +8,7 @@ const getAllProduct = (query, sort) => async (dispatch) => {
         const result = products.data.data;
         dispatch({ type: "GET_ALL_PRODUCT", payload: result })
     } catch (err) {
-        console.log(err.message)
+        console.log('err: ', err.response.data.message)
     }
 }
 

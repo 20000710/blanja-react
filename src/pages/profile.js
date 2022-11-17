@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import Sidebar from '../components/sidebar/sidebar'
 import TableProduct from '../components/table/table-product'
 import ProfileCustomer from '../components/profile-customer/profileCustomer'
@@ -13,24 +13,18 @@ const Profile = () => {
     const dispatch = useDispatch()
     const { customerDetail } = useSelector((state) => state.customer)
     const role = Cookies.get("role")
-    const token = Cookies.get("token")
-    const customer_id = Cookies.get("customer_id")
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [phone, setPhone] = useState("")
-    const [gender, setGender] = useState("")
-    const [dateOfBirth, setDateOfBirth] = useState("")
     console.log('customer: ', customerDetail);
-    
+    const name = customerDetail?.name
+    const email = customerDetail?.email
+    const phone = customerDetail?.phone
+    const gender = customerDetail?.gender
+    const date_of_birth = customerDetail?.date_of_birth
     const photo = customerDetail?.photo
 
     useEffect(() => {
+        const token = Cookies.get("token")
+        const customer_id = Cookies.get("customer_id")
         dispatch(getDetailCustomer(token, customer_id))
-        setName(customerDetail.name)
-        setEmail(customerDetail.email)
-        setPhone(customerDetail.phone)
-        setGender(customerDetail.gender)
-        setDateOfBirth(customerDetail.date_of_birth)
     }, [])
     return (
         <Fragment>
@@ -41,7 +35,7 @@ const Profile = () => {
                     email={email}
                     phone={phone}
                     gender={gender}
-                    date_of_birth={dateOfBirth}
+                    date_of_birth={date_of_birth}
                     photo={photo}
                     customerDetail={customerDetail}
                 /> :

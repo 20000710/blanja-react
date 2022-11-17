@@ -49,9 +49,6 @@ const ModalCreate = ({children}) => {
   };
 
   console.log('data: ', data);
-  // useEffect(() => {
-  //   get
-  // },[])
   return (
     <Fragment>
       <button

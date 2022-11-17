@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import profilePhoto from '../../assets/img/profile-photo.png'
-import { getAllCustomer, updateCustomer, uploadImage } from '../../redux/action/customerAction';
+import { getDetailCustomer, updateCustomer, uploadImage } from '../../redux/action/customerAction';
 import styles from './profileCustomer.module.css';
 import Cookies from 'js-cookie'
 import ShippingAddress from '../shipping-address/shippingAddress';
 import MyOrder from '../my-order/myOrder';
 
-const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo, customerDetail }) => {
+const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo }) => {
     const token = Cookies.get("token")
     const customer_id = Cookies.get("customer_id")
     const [active, setActive] = useState(false);
     const dispatch = useDispatch()
     const [previewImage, setPreviewImage] = useState()
     const [image, setImage] = useState(photo);
-    const [data, setData] = useState({
-        name,
-        email,
-        phone,
-        gender,
-        date_of_birth
+    const {customerDetail} = useSelector(state => state.customer)
 
+    const [data, setData] = useState({
+        name: name !== undefined || name !== null ? name : customerDetail.name,
+        email: email !== undefined || email !== null ? email : customerDetail.email ,
+        phone: phone !== undefined || phone !== null ? phone : customerDetail.phone,
+        gender: gender !== undefined || gender !== null ? gender?.toLowerCase() : customerDetail.gender?.toLowerCase(),
+        date_of_birth: date_of_birth !== undefined || date_of_birth !== null ? date_of_birth : customerDetail.date_of_birth
     })
+    
     const handleImageUpload = (e) => {
         setActive(true)
         const file = e.target.files[0];
@@ -51,6 +53,7 @@ const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo, cus
     const handleSubmitProfile = (e) => {
         e.preventDefault();
         dispatch(updateCustomer(data, token, customer_id))
+        dispatch(getDetailCustomer(token, customer_id))
     }
 
     const handleChange = (e) => {
@@ -59,15 +62,7 @@ const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo, cus
 
     console.log('data: ', data);
     useEffect(() => {
-        setData({
-            ...data,
-            name: name,
-            email: email,
-            phone: phone,
-            gender: gender?.toLowerCase(),
-            date_of_birth: date_of_birth
-        })
-        dispatch(getAllCustomer(token, customer_id))
+        dispatch(getDetailCustomer(token, customer_id))
     }, [])
 
     console.log('customerDetail: ', customerDetail);
@@ -193,7 +188,7 @@ const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo, cus
                                                             type="name"
                                                             name="name"
                                                             onChange={handleChange}
-                                                            defaultValue={data.name}
+                                                            value={data.name}
                                                             className="form-control"
                                                             id="exampleFormControlInput1"
                                                             placeholder=""
@@ -208,7 +203,7 @@ const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo, cus
                                                             type="email"
                                                             name="email"
                                                             onChange={handleChange}
-                                                            defaultValue={data.email}
+                                                            value={data.email}
                                                             className="form-control"
                                                             id="exampleFormControlInput1"
                                                             placeholder=""
@@ -226,7 +221,7 @@ const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo, cus
                                                             type="phone"
                                                             name="phone"
                                                             onChange={handleChange}
-                                                            defaultValue={data.phone}
+                                                            value={data.phone}
                                                             className="form-control"
                                                             id="exampleFormControlInput1"
                                                             placeholder=""
@@ -248,26 +243,26 @@ const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo, cus
                                                                     className="form-check-input"
                                                                     type="radio"
                                                                     name="inlineRadioOptions"
-                                                                    id="inlineRadio1"
+                                                                    id="male"
                                                                     checked={data.gender === "male"}
                                                                     value={data.gender !== "male" ? "male" : data.gender}
                                                                     onChange={handleRadioButton}
                                                                 />
                                                                 <label className="form-check-label my-auto"
-                                                                    for="inlineRadio1">Laki - laki</label>
+                                                                    for="male">Laki - laki</label>
                                                             </div>
                                                             <div className="form-check form-check-inline">
                                                                 <input
                                                                     className="form-check-input"
                                                                     type="radio"
                                                                     name="inlineRadioOptions"
-                                                                    id="inlineRadio2"
+                                                                    id="female"
                                                                     checked={data.gender === "female"}
                                                                     value={data.gender !== "female" ? "female" : data.gender}
                                                                     onChange={handleRadioButton}
                                                                 />
                                                                 <label className="form-check-label my-auto"
-                                                                    for="inlineRadio2">Perempuan</label>
+                                                                    for="female">Perempuan</label>
                                                             </div>
                                                         </div>
 
@@ -281,7 +276,7 @@ const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo, cus
                                                             </label>
                                                         </div>
                                                         <input
-                                                            defaultValue={data.date_of_birth}
+                                                            value={data.date_of_birth}
                                                             name="date_of_birth"
                                                             type="date_of_birth"
                                                             onChange={handleChange}

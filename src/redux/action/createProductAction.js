@@ -1,5 +1,4 @@
 import axios from "axios";
-import getAllProduct from "./getAllproductAction";
 
 const createProduct = (data, saveImage, token) =>  async (dispatch) => {
     try {
@@ -18,11 +17,11 @@ const createProduct = (data, saveImage, token) =>  async (dispatch) => {
                 "Content-Type": "multipart/form-data",
                 Authorization: `Bearer ${token}`
             },
-        });
+        })
         console.log(products);
         alert("crate product successful");
         const result = products.data.data;
-        dispatch({ type: "CREATE_PRODUCT", payload: result });
+        dispatch({ type: "CREATE_PRODUCT", payload: result })
     } catch (err) {
         console.error(err.message);
         alert("crate product failed");

@@ -35,7 +35,7 @@ header{
 }
 
 .search-input input{
-    width: 31rem !important;
+    width: 31rem!important;
     height: 2.5rem;
     background: #FFFFFF;
     border: 1px solid #8E8E93;
@@ -43,7 +43,7 @@ header{
     background-position: 96% 45%;
     background-repeat: no-repeat;
     background-size: 18px 18px;
-    margin: 30px 0px 30px 60px !important;
+    margin: 30px 0px 30px 60px;
 }
 
 .search-input input::-webkit-input-placeholder{
@@ -450,4 +450,14 @@ padding: 6px 30px;
 .product-bag img {
 height: 50px;
 margin: 13px;
+}
+
+@media screen and (max-width: 990px) {
+    .search-input .input-group{
+        width: 80%;
+    }
+    .search-input input{
+        
+        margin: 1.9rem 0!important;
+    }
 }

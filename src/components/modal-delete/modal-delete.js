@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
 import deleteProduct from "../../redux/action/deleteProductAction";
+import getAllProduct from "../../redux/action/getAllproductAction";
 
 const ModalDelete = ({ children, id, name }) => {
     const token = Cookies.get("token")
@@ -12,7 +13,7 @@ const ModalDelete = ({ children, id, name }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleDelete = () => {
-        // window.location.reload();
+        window.location.reload();
         dispatch(deleteProduct(id, token))
         handleClose();
     };

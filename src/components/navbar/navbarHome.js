@@ -57,7 +57,7 @@ const NavbarHome = (props) => {
                             <h2 className="blanja-font">Blanja</h2>
                         </div>
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto" id={styles["item-menu"]}>
                             <div className="col p-0 search-input d-flex">

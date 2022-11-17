@@ -4,7 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
 import styles from '../../assets/style/checkout.module.css'
 
-const ModalAddAddress = ({ children, title }) => {
+const ModalAddAddress = ({ children, title, customerDetail }) => {
+    console.log('customerDetail: ', customerDetail);
     const [show, setShow] = useState(false);
     const [active, setActive] = useState(false);
     const handleClose = () => setShow(false);
@@ -184,31 +185,55 @@ const ModalAddAddress = ({ children, title }) => {
                                 <button type="submit" className={styles["save-btn"]}>Save</button>
                             </div>
                         </> :
-                        <>
+                        <>  
                             <button
                                 type="button"
                                 className={styles["btn-add-new"]}
                                 onClick={handleActive}
+                                disabled={customerDetail.address2 === null || customerDetail.address2 === "" || customerDetail.address2 === undefined ? false : true}
                             >
                                 Add new address
                             </button>
-                            <div className="card"
-                                style={{
-                                    border: "1px solid #DB3022",
-                                    borderRadius: "4px",
-                                    height: "170px",
-                                    marginTop: "2rem"
-                                }}>
-                                <div className="card-body" style={{ padding: "1.5rem" }}>
-                                    <h5 class="card-title">Andres Jane</h5>
-                                    <p className="card-text mx-0 my-3" style={{lineHeight: "24px"}}>
-                                        Perumahan Sapphire Mediterania, Wiradadi, Kec. Sokaraja, Kabupaten Banyumas, Jawa Tengah, 53181 [Tokopedia Note: blok c 16] Sokaraja, Kab. Banyumas, 53181
-                                    </p>
-                                    <Link to="#" style={{color: "#DB3022", fontWeight: "600"}}>
-                                        Change Address
-                                    </Link>
+                            
+                            {customerDetail.address === null || customerDetail.address === "" || customerDetail.address === undefined ? "" :
+                                <div className="card"
+                                    style={{
+                                        border: "1px solid #DB3022",
+                                        borderRadius: "4px",
+                                        height: "170px",
+                                        marginTop: "2rem"
+                                    }}>
+                                    <div className="card-body" style={{ padding: "1.5rem" }}>
+                                        <h5 class="card-title">{customerDetail?.name_address}</h5>
+                                        <p className="card-text mx-0 my-3" style={{ lineHeight: "24px" }}>
+                                            {customerDetail?.address}
+                                        </p>
+                                        <Link to="#" style={{ color: "#DB3022", fontWeight: "600" }}>
+                                            Change Address
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
+                            }
+                            {customerDetail.address2 === null || customerDetail.address2 === "" || customerDetail.address2 === undefined ? "" :
+                                <div className="card"
+                                    style={{
+                                        border: "1px solid #DB3022",
+                                        borderRadius: "4px",
+                                        height: "170px",
+                                        marginTop: "2rem"
+                                    }}>
+                                    <div className="card-body" style={{ padding: "1.5rem" }}>
+                                        <h5 class="card-title">{customerDetail?.name_address2}</h5>
+                                        <p className="card-text mx-0 my-3" style={{ lineHeight: "24px" }}>
+                                            {customerDetail?.address2}
+                                        </p>
+                                        <Link to="#" style={{ color: "#DB3022", fontWeight: "600" }}>
+                                            Change Address
+                                        </Link>
+                                    </div>
+                                </div>
+                            }
+                            
                         </>
                     }
                 </Modal.Body>
