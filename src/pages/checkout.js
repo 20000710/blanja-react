@@ -136,7 +136,7 @@ const Checkout = () => {
                                 boxShadow: "0px 0px 8px rgba(115, 115, 115, 0.25)",
                                 borderRadius: "4px"
                             }}>
-                                <img crossOrigin="anonymous" src={"http://localhost:3030/" + productDetail?.photo} alt="item" />
+                                <img crossOrigin="anonymous" src={productDetail?.photo} alt="item" />
                                 <div className={styles["item-section"]}>
                                     <div>
                                         <h5 className={styles["item-name"]}>{productDetail?.name}</h5>

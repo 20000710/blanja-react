@@ -94,7 +94,7 @@ const ProductDetail = () => {
               width={367}
               height={378}
               crossOrigin='anonymous'
-              src={'http://localhost:3030/' + productDetail?.photo}
+              src={productDetail?.photo}
               id="main-img" className="main-img"
               alt="main"
             />

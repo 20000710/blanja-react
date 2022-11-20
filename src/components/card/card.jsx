@@ -18,7 +18,7 @@ const Card = ({ src, to, id_product, titleName, price, merk }) => {
                         height: "250px",
                         width: "100%"
                     }} crossOrigin='anonymous'
-                        src={'http://localhost:3030/' + src}
+                        src={src}
                         className="img-fluid"
                         alt="..."
                     />

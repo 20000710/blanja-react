@@ -19,7 +19,7 @@ const ProfileSeller = () => {
                                 src={previewImage === undefined || previewImage === "" ?
                                     (photo === undefined || photo === "" ?
                                         profilePhoto :
-                                        "http://localhost:3030/" + photo) : previewImage}
+                                        photo) : previewImage}
                                 alt="profile" /> */}
                         </div>
                         <div className="col-xl-8 col-lg-8 col-md-8 col-sm-8 my-auto">

@@ -60,7 +60,7 @@ const TableProduct = () => {
                 <img 
                 crossOrigin="anonymous" 
                 src={
-                  "http://localhost:3030/" + item.photo
+                  item.photo
                 } alt="product-images" /></td>
               <td>{item.description}</td>
               <td className="text-center">

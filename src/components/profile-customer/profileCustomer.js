@@ -8,6 +8,7 @@ import ShippingAddress from '../shipping-address/shippingAddress';
 import MyOrder from '../my-order/myOrder';
 
 const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo }) => {
+    console.log('photo: ', photo);
     const token = Cookies.get("token")
     const customer_id = Cookies.get("customer_id")
     const [active, setActive] = useState(false);
@@ -81,8 +82,8 @@ const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo }) =
                                 className="photo-profile-side"
                                 src={previewImage === undefined || previewImage === "" ?
                                     (photo === undefined || photo === "" ?
-                                        profilePhoto :
-                                        "http://localhost:3030/" + photo) : previewImage}
+                                        profilePhoto : photo) : previewImage
+                                    }
                                 alt="profile" />
                         </div>
                         <div className="col-xl-8 col-lg-8 col-md-8 col-sm-8 my-auto">
@@ -148,7 +149,7 @@ const ProfileCustomer = ({ name, email, phone, gender, date_of_birth, photo }) =
                                                                 (photo === undefined || photo === "" ?
                                                                     profilePhoto
                                                                     :
-                                                                    "http://localhost:3030/" + photo) : previewImage
+                                                                    photo) : previewImage
                                                             }
                                                             alt="profile" />
                                                     </div>
