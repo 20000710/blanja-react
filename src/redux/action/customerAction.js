@@ -18,7 +18,7 @@ export const getAllCustomer = (token) => async (dispatch) => {
 
 export const getDetailCustomer = (token, id) => async (dispatch) => {
     try{
-        const customer = await axios.get(process.env.REACT_APP_API_BACKEND + "/customer/" +id, {
+        const customer = await axios.get(process.env.REACT_APP_API_BACKEND + "customer/" +id, {
             headers: {
             Authorization: `Bearer ${token}`,
         }})
