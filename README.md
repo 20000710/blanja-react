@@ -37,7 +37,7 @@
 
 ## About The Project
 
-Blanja is a web-based application for displaying food recipes and also can gives some review and add new recipes.
+Blanja is an e-commerce web application where users can shop for clothes of various sizes and colors at various prices.
 
 ### Built With
 
