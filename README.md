@@ -2,11 +2,8 @@
 
 <!-- HEADER -->
 <div align="center">
-  <a href="https://github.com/rifqiay/Angkasa-Ticketing-Frontend">
-    <img src="./src/assets/img/logo.png" alt="Logo" width="200px">
-  </a>
-  
-  <h3 align="center">Recipe-App-Frontend with React.js</h3>
+ 
+  <h3 align="center">Blanja-Frontend with React.js</h3>
 </div>
 
 <!-- TABLE OF CONTENTS -->
