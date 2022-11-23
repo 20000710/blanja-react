@@ -62,7 +62,7 @@ Make sure that Node JS is installed on the computer.
 
 ### Installation
 
-1. Clone this repo (Recipe-App-Frontend)
+1. Clone this repo (blanja-react)
    ```sh
    git clone https://github.com/20000710/blanja-react.git
    ```
@@ -82,7 +82,7 @@ Make sure that Node JS is installed on the computer.
 
 ## Related Project
 
-:rocket: [`Recipe-App-Backend`](https://github.com/20000710/Recipe-App-Backend.git)
+:rocket: [`tok`](https://github.com/20000710/toko.git)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
