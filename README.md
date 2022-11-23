@@ -93,17 +93,16 @@ Make sure that Node JS is installed on the computer.
 <p align="center" display=flex>
 <table>
   <tr>
-    <td><image src="./screenshot/register page.png" alt="Register Page" width=100%></td>
-    <td><image src="./screenshot/login page.png" alt="Login Page" width=100%/></td>
+    <td><image src="./screenshot/register.png" alt="Register Page" width=100%></td>
+    <td><image src="./screenshot/login.png" alt="Login Page" width=100%/></td>
   </tr>
    <tr>
     <td>Register</td>
     <td>Login</td>
   </tr>
-  
   <tr>
-    <td><image src="./screenshot/landing page.png" alt="Home Page" width=100% ></td>
-    <td><image src="./screenshot/search page.png" alt="Search Flight from Home" width=100%/></td>
+    <td><image src="./screenshot/landing-page.png" alt="Home Page" width=100% ></td>
+    <td><image src="./screenshot/detail-product.png" alt="detail product" width=100%/></td>
   </tr>
   <tr>
     <td>Home</td>
