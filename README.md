@@ -82,7 +82,7 @@ Make sure that Node JS is installed on the computer.
 
 ## Related Project
 
-:rocket: [`tok`](https://github.com/20000710/toko.git)
+:rocket: [`blanja-backend`](https://github.com/20000710/toko.git)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -93,38 +93,28 @@ Make sure that Node JS is installed on the computer.
 <p align="center" display=flex>
 <table>
   <tr>
-    <td><image src="./screenshot/register page.png" alt="Register Page" width=100%></td>
-    <td><image src="./screenshot/login page.png" alt="Login Page" width=100%/></td>
+    <td><image src="./screenshot/register.png" alt="Register Page" width=100%></td>
+    <td><image src="./screenshot/login.png" alt="Login Page" width=100%/></td>
   </tr>
    <tr>
     <td>Register</td>
     <td>Login</td>
   </tr>
-  
   <tr>
-    <td><image src="./screenshot/landing page.png" alt="Home Page" width=100% ></td>
-    <td><image src="./screenshot/search page.png" alt="Search Flight from Home" width=100%/></td>
+    <td><image src="./screenshot/landing-page.png" alt="Home Page" width=100% ></td>
+    <td><image src="./screenshot/detail-product.png" alt="detail product" width=100%/></td>
   </tr>
   <tr>
     <td>Home</td>
     <td>Search</td>
   </tr>
   <tr>
-    <td><image src="./screenshot/add recipe page.png" alt="Search Flight" width=100%/></td>
-    <td><image src="./screenshot/resep detail.png" alt="Flight detail" width=100%></td>
+    <td><image src="./screenshot/filter.png" alt="Filter Product" width=100%/></td>
+    <td><image src="./screenshot/payment.png" alt="Payment Checkout Page" width=100%></td>
   </tr>
   <tr>
      <td>Add Receipe</td>
      <td>Receipe Detail</td>
-  </tr>
-  
-  <tr>
-    <td><image src="./screenshot/video page.png" alt="My booking flight" width=100%></td>
-    <td><image src="./screenshot/profile page.png" alt="Profile" width=100%></td>
-  </tr>
-  <tr>
-    <td>Video</td>
-    <td>Profile</td>
   </tr>
 </table>
 
