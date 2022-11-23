@@ -117,5 +117,3 @@ Make sure that Node JS is installed on the computer.
      <td>Receipe Detail</td>
   </tr>
 </table>
-
-<p align="right">(<a href="#top">back to top</a>)</p>
