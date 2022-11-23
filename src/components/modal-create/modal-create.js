@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import "../../assets/style/modal.css";
 import createProduct from "../../redux/action/createProductAction";
 import Cookies from 'js-cookie';
-import { useEffect } from "react";
 
 const ModalCreate = ({children}) => {
   const token = Cookies.get("token")
@@ -43,7 +42,6 @@ const ModalCreate = ({children}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.location.reload();
     dispatch(createProduct(data,saveImage,token))
     handleClose()
   };

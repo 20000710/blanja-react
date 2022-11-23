@@ -32,12 +32,6 @@ export const getDetailCustomer = (token, id) => async (dispatch) => {
 
 export const updateCustomer = (data, token, customer_id) => async (dispatch) => {    
     try {
-        // const customer = await axios.get(process.env.REACT_APP_API_BACKEND + "/customer/" + customer_id, {
-        //     headers: {
-        //     Authorization: `Bearer ${token}`,
-        // }})
-        // const resData = customer.data.data
-
         const allData = {
             name: data.name,
             email: data.email,

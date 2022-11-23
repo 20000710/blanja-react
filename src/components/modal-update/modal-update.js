@@ -54,7 +54,6 @@ const ModalUpdate = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // window.location.reload();
     dispatch(updateProduct(data,id,saveImage,token))
     handleClose()
   };
