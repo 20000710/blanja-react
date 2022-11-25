@@ -2,7 +2,7 @@
 
 <!-- HEADER -->
 <div align="center">
- 
+  <img src="./screenshot/blanja.png" />
   <h3 align="center">Blanja-Frontend with React.js</h3>
 </div>
 
